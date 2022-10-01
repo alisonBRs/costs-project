@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  background: var(--background);
+  justify-content: space-between;
+  gap: 30rem;
+  padding: 1rem 5rem 1rem 5rem;
+  align-items: center;
+}
+
+.header img {
+  height: 5rem;
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: 0.5s;
+}
+
+.header a:hover {
+  color: var(--orange-hover);
+}

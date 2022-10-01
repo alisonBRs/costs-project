@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 80rem;
+  width: 200px;
+  border: 1px solid navy;
+}
+
+.header {
+  height: 50px;
+  border: 1px solid palevioletred;
+}
+
+.footer {
+  height: 50px;
+  border: 1px solid blueviolet;
+  flex: 1 0 auto;
+}
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+.container a {
+  text-decoration: none;
+  color: black;
+  height: 1.5rem;
+  transition: 0.5s;
+}
+
+.container a:hover {
+  color: rgb(255, 185, 56);
+}

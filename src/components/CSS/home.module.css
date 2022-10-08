@@ -1,33 +1,28 @@
-.main {
+.wellcome h3 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.wellcome span {
+  background: var(--background);
+  color: var(--orange-hover);
+  padding: 0 0.5rem 0 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.wellcome p {
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+.main_home {
   display: flex;
   flex-direction: column;
-  height: 80rem;
-  width: 200px;
-  border: 1px solid navy;
+  gap: 5rem;
 }
 
-.header {
-  height: 50px;
-  border: 1px solid palevioletred;
-}
-
-.footer {
-  height: 50px;
-  border: 1px solid blueviolet;
-  flex: 1 0 auto;
-}
-.container {
-  display: flex;
-  gap: 2rem;
-}
-
-.container a {
-  text-decoration: none;
-  color: black;
-  height: 1.5rem;
-  transition: 0.5s;
-}
-
-.container a:hover {
-  color: rgb(255, 185, 56);
+.main_home .bg_img img {
+  margin-bottom: 5rem;
+  width: 21.875rem;
 }

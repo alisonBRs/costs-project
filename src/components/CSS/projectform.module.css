@@ -1,0 +1,13 @@
+.project_inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.project_options {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}

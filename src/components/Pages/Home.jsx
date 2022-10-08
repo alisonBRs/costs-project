@@ -1,18 +1,21 @@
 import styles from "../CSS/home.module.css"
-import { Link } from "react-router-dom"
+import bg_img from "../../img/savings.svg"
+import LinkButton from "../Layout/LinkButton"
 
 export default function Home() {
   return (
-    <>
-      <p>home</p>
-
-      <div className={styles.container}>
-        <div className={styles.main}>
-          <div className={styles.header}></div>
-          <div className={styles.footer}></div>
-        </div>
-        <Link to="/NewProject">Criar novo projeto</Link>
+    <section className={styles.main_home}>
+      <div className={styles.wellcome}>
+        <h3>
+          Bem-vindo ao <span>Costs</span>
+        </h3>
+        <p>Comece a gerenciar os seus projetos agora mesmo!</p>
+        <LinkButton to="/NewProject" text="Criar projeto" />
       </div>
-    </>
+
+      <div className={styles.bg_img}>
+        <img src={bg_img} alt="bg_img" />
+      </div>
+    </section>
   )
 }

@@ -18,7 +18,6 @@
 }
 
 .header a {
-  text-decoration: none;
   color: var(--text-color);
   transition: 0.5s;
 }

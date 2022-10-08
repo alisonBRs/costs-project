@@ -1,0 +1,14 @@
+.newProject_container h1 {
+  margin-bottom: 0.5rem;
+  text-align: start;
+}
+
+.newProject_container p {
+  text-align: start;
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+.newProject_container {
+  width: 25rem;
+}

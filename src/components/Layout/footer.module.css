@@ -32,6 +32,11 @@
   color: var(--orange-hover);
 }
 
+.copyright a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
 .copyright span {
   color: var(--orange-hover);
 }

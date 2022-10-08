@@ -17,8 +17,13 @@ body,
   flex-direction: column;
 }
 
+a {
+  text-decoration: none;
+}
+
 :root {
   --background: #222;
   --orange-hover: #ffbb33;
   --text-color: #fff;
+  --gray: #7b7b7b;
 }

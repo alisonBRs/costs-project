@@ -15,13 +15,13 @@ export default function header() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/Projects">Projetos</Link>
+            <Link to="/projects">Projetos</Link>
           </li>
           <li>
-            <Link to="/Company">Empresa</Link>
+            <Link to="/company">Empresa</Link>
           </li>
           <li>
-            <Link to="/Contact">Contato</Link>
+            <Link to="/contact">Contato</Link>
           </li>
         </ul>
       </nav>

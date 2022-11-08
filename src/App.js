@@ -11,18 +11,26 @@ import NewProject from "./components/Pages/NewProject"
 import Container from "./components/Layout/Container"
 import Footer from "./components/Layout/Footer"
 
+import { useState } from "react"
+import { Message } from "./components/Layout/Message"
+
 function App() {
+  const [showToast, setShowToast] = useState(false)
   return (
     <Router>
       <Header />
 
-      <Container colorBlue="bg">
+      <Container customClass="bg">
+        {showToast && <Message msg="Projeto criado com sucesso!" />}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Projects" element={<Projects />} />
-          <Route path="/Company" element={<Company />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/NewProject" element={<NewProject />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/company" element={<Company />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/newproject"
+            element={<NewProject setShow={setShowToast} />}
+          />
         </Routes>
       </Container>
 

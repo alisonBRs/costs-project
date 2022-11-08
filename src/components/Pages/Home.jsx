@@ -10,7 +10,7 @@ export default function Home() {
           Bem-vindo ao <span>Costs</span>
         </h3>
         <p>Comece a gerenciar os seus projetos agora mesmo!</p>
-        <LinkButton to="/NewProject" text="Criar projeto" />
+        <LinkButton to="/newproject" text="Criar projeto" />
       </div>
 
       <div className={styles.bg_img}>

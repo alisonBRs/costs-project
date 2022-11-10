@@ -25,6 +25,8 @@ export function Message({ type, msg }) {
 
   function timerIsOver() {
     setVisible(false)
+
+    return
   }
   return (
     <>

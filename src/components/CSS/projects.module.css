@@ -1,4 +1,8 @@
-.start {
+.body {
+  width: 100%;
+}
+
+.header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 }

@@ -2,6 +2,7 @@
   background: var(--background);
   color: var(--text-color);
   padding: 0.5rem 1rem;
+  height: -webkit-fill-available;
   border-radius: 0.25rem;
   text-decoration: none;
   transition: 0.5s;

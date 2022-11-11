@@ -8,7 +8,7 @@ export default function Projects() {
     <div className={styles.body}>
       <div className={styles.header}>
         <h1>Meus Projetos</h1>
-        <Link className={style.button} to="/NewProject">
+        <Link className={style.button} to="/newproject">
           Novo projeto
         </Link>
       </div>

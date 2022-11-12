@@ -21,7 +21,7 @@ function App() {
       <Header />
 
       <Container customClass="bg">
-        {showToast && <Message msg="Projeto criado com sucesso!" />}
+        {showToast && <Message showToast={showToast} setShowToast={setShowToast} msg="Projeto criado com sucesso!" />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />

@@ -11,7 +11,7 @@ export default function NewProject({ setShow }) {
     project.service = []
 
     axios
-      .post("http://localhost:5050/project", project)
+      .post("http://localhost:5050/projects", project)
       .then(() => {
         setShow(true)
         navigate("/projects")

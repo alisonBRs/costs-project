@@ -7,9 +7,72 @@
   justify-content: space-between;
 }
 
+.header h1 {
+  margin-bottom: 2rem;
+}
+
 .card {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 186);
+  width: 15rem;
+  height: 15rem;
   border-radius: 0.25rem;
   padding: 1rem 1.5rem;
-  box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 8px 4px rgba(117, 117, 117, 0.8);
+}
+
+.card span {
+  color: rgb(10, 124, 10);
+}
+
+.card p:nth-child(3) {
+  margin-bottom: 2rem;
+}
+
+.flex_description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.card_body {
+  flex: 1 0 auto;
+}
+
+.card_body h3 {
+  margin-bottom: 0.5rem;
+}
+
+.check_circle {
+  width: 0.5rem;
+  height: 0.5rem;
+  clip-path: circle();
+}
+
+.infra {
+  background: rgb(212, 94, 153);
+}
+
+.desenvolvimento {
+  background: rgb(150, 245, 62);
+}
+
+.design {
+  background: rgb(3, 24, 212);
+}
+
+.planejamento {
+  background: rgb(15, 216, 182);
+}
+
+.no_project_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.no_project_card p {
+  margin-bottom: 1rem;
 }

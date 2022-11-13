@@ -1,0 +1,19 @@
+.btn_container {
+  display: flex;
+  justify-content: space-evenly;
+  height: fit-content;
+}
+
+.btn_container .edit {
+  display: flex;
+  gap: 0.2rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.btn_container .trash {
+  display: flex;
+  gap: 0.2rem;
+  cursor: pointer;
+  align-items: center;
+}

@@ -59,7 +59,7 @@ export default function Projects() {
           <div className={styles.no_project_card}>
             <p>Sem projetos no momento.</p>
             <Link className={style.button} to="/newproject">
-              Novo projeto
+              Criar projeto
             </Link>
           </div>
         )}

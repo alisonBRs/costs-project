@@ -2,35 +2,34 @@ import styles from "../Layout/message.module.css"
 import { useState, useEffect } from "react"
 import { FiX } from "react-icons/fi"
 
-export function Message({ type, msg }) {
-  const [visible, setVisible] = useState(false)
+export function Message({ type, msg, showToast, setShowToast }) {
   if (!type) {
     type = "success"
   }
 
   useEffect(() => {
     if (!msg) {
-      setVisible(false)
+      setShowToast(false)
       return
     }
 
-    setVisible(true)
+    setShowToast(true)
 
     const timer = setTimeout(() => {
-      setVisible(false)
+      setShowToast(false)
     }, 5000)
 
     return () => clearTimeout(timer)
   }, [msg])
 
   function timerIsOver() {
-    setVisible(false)
+    setShowToast(false)
 
     return
   }
   return (
     <>
-      {visible && (
+      {showToast && (
         <div className={`${styles.message} ${styles[type]}`}>
           {msg}
           <FiX onClick={timerIsOver} />

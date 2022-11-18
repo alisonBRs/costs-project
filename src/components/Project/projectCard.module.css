@@ -4,16 +4,19 @@
   height: fit-content;
 }
 
-.btn_container .edit {
-  display: flex;
-  gap: 0.2rem;
-  cursor: pointer;
-  align-items: center;
-}
-
+.btn_container .edit,
 .btn_container .trash {
   display: flex;
   gap: 0.2rem;
   cursor: pointer;
   align-items: center;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  transition: 0.5s;
+}
+
+.btn_container .edit:hover,
+.btn_container .trash:hover {
+  background: rgb(0, 0, 0);
+  color: var(--orange-hover);
 }

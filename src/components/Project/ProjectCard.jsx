@@ -1,8 +1,14 @@
 import styles from "./projectCard.module.css"
 import style from "../CSS/projects.module.css"
+import { Link } from "react-router-dom"
 import { BsPencil, BsFillTrashFill } from "react-icons/bs"
 
 export function ProjectCard({ id, name, budget, category, handleRemove }) {
+  function remove(e) {
+    e.preventDefault()
+    handleRemove(id)
+  }
+
   return (
     <>
       <div className={style.card} key={id}>
@@ -11,7 +17,7 @@ export function ProjectCard({ id, name, budget, category, handleRemove }) {
           <p>
             <span className={style.P_bold}>Orçamento: </span>
             <span>R$</span>
-            {budget}
+            {parseInt(budget).toLocaleString("pt-br")}
           </p>
 
           <div className={style.flex_description}>
@@ -25,15 +31,15 @@ export function ProjectCard({ id, name, budget, category, handleRemove }) {
         </div>
 
         <div className={styles.btn_container}>
-          <div className={styles.edit}>
+          <Link className={styles.edit}>
             <BsPencil />
             <p>Editar</p>
-          </div>
+          </Link>
 
-          <div className={styles.trash}>
+          <button onClick={remove} className={styles.trash}>
             <BsFillTrashFill />
             <p>Excluir</p>
-          </div>
+          </button>
         </div>
       </div>
     </>

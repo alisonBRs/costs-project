@@ -13,17 +13,23 @@ export default function Projects() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => {
-      axios
-        .get("http://localhost:5050/projects")
-        .then(({ data }) => {
-          setProjects(data)
-          setLoading(false)
-        })
-        .catch((err) => console.log(err))
-    }, 2000)
+    axios
+      .get("http://localhost:5050/projects")
+      .then(({ data }) => {
+        setProjects(data)
+        setLoading(false)
+      })
+      .catch((err) => console.log(err))
   }, [])
 
+  function removeProject(id) {
+    axios
+      .delete(`http://localhost:5050/projects/${id}`)
+      .then(() => {
+        setProjects(projects.filter((project) => project.id !== id))
+      })
+      .catch((err) => console.log(err))
+  }
   return (
     <div className={styles.body}>
       <div className={styles.header}>
@@ -45,6 +51,7 @@ export default function Projects() {
                 name={project.name}
                 budget={project.budget}
                 category={project.category.name}
+                handleRemove={removeProject}
               />
             ))
           : !loading && (

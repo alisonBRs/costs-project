@@ -1,5 +1,61 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "name": "PC building project",
+      "budget": "2200",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 1
+    },
+    {
+      "name": "Controller",
+      "budget": "9500",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 2
+    },
+    {
+      "name": "teste de projeto",
+      "budget": "5000",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 3
+    },
+    {
+      "name": "Meu projeto",
+      "budget": "550285",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 4
+    },
+    {
+      "name": "Novo projeto",
+      "budget": "1580620",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 5
+    }
+  ],
   "categories": [
     {
       "id": 1,

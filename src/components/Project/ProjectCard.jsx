@@ -11,7 +11,7 @@ export function ProjectCard({ id, name, budget, category, handleRemove }) {
 
   return (
     <>
-      <div className={style.card} key={id}>
+      <div className={style.card}>
         <div className={style.card_body}>
           <h3>{name}</h3>
           <p>
@@ -31,7 +31,7 @@ export function ProjectCard({ id, name, budget, category, handleRemove }) {
         </div>
 
         <div className={styles.btn_container}>
-          <Link className={styles.edit}>
+          <Link to={`/project/${id}`} className={styles.edit}>
             <BsPencil />
             <p>Editar</p>
           </Link>

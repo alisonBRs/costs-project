@@ -13,9 +13,11 @@ import Footer from "./components/Layout/Footer"
 
 import { useState } from "react"
 import { Message } from "./components/Layout/Message"
+import { Project } from "./components/Pages/Project"
 
 function App() {
   const [showToast, setShowToast] = useState(false)
+  const [messageDelete, setMessageDelete] = useState(false)
   return (
     <Router>
       <Header />
@@ -28,15 +30,26 @@ function App() {
             msg="Projeto criado com sucesso!"
           />
         )}
+        {messageDelete && (
+          <Message
+            showToast={messageDelete}
+            setShowToast={setMessageDelete}
+            msg="Projeto deletado com sucesso!"
+          />
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route
+            path="/projects"
+            element={<Projects projectMessage={setMessageDelete} />}
+          />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/newproject"
             element={<NewProject setShow={setShowToast} />}
           />
+          <Route path="/project/:id" element={<Project />} />
         </Routes>
       </Container>
 

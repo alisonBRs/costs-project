@@ -1,5 +1,39 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "name": "Meu teste",
+      "budget": "2550",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 1
+    },
+    {
+      "name": "PC",
+      "budget": "2800",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 2
+    },
+    {
+      "name": "asdasdasd",
+      "budget": "1312312312",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 3
+    }
+  ],
   "categories": [
     {
       "id": 1,

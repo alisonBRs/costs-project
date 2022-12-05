@@ -1,3 +1,31 @@
 .project_container {
   width: 100%;
 }
+
+.details_flex {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.details_container {
+  flex-wrap: wrap;
+  border-bottom: 1px solid grey;
+  text-align: start;
+  padding-bottom: 1rem;
+}
+
+.details_container h2 {
+  background: rgb(255, 255, 186);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.project_details p {
+  margin-bottom: 0.5rem;
+}
+
+.project_details p span {
+  font-weight: bold;
+}

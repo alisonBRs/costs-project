@@ -2,6 +2,7 @@ import styles from "../CSS/projectform.module.css"
 import Input from "../form/Input"
 import Select from "../form/Select"
 import Button from "../form/Button"
+import { Message } from "../Layout/Message"
 
 import { useState, useEffect } from "react"
 import axios from "axios"
@@ -9,6 +10,7 @@ import axios from "axios"
 export default function ProjectForm({ handleSubmit, btn_text, projectData }) {
   const [categories, setCategories] = useState([])
   const [project, setProject] = useState(projectData || {})
+  const [redToast, setRedToast] = useState(false)
 
   useEffect(() => {
     axios
@@ -19,10 +21,15 @@ export default function ProjectForm({ handleSubmit, btn_text, projectData }) {
       .catch((err) => console.log(err))
   }, [])
 
+  function validateInputs() {
+    if (!project.name || !project.budget || !project.category) setRedToast(true)
+  }
+
   function noSub(e) {
     e.preventDefault()
+    const isValid = validateInputs()
+    if (!isValid) return
     handleSubmit(project)
-    console.log(project)
   }
 
   function handleChange(e) {
@@ -44,14 +51,24 @@ export default function ProjectForm({ handleSubmit, btn_text, projectData }) {
       className={styles.project_container}
       autoComplete="off"
     >
+      {redToast && (
+        <Message
+          showToast={redToast}
+          setShowToast={setRedToast}
+          type="error"
+          msg="Preencha os campos corretamente"
+        />
+      )}
       <div className={styles.project_inputs}>
         <Input
           type="text"
           text="Nome do projeto"
           name="name"
           placeholder="Insira o nome do projeto"
+          value={project.name}
           onChange={handleChange}
         />
+
         <Input
           inputMode="numeric"
           pattern="[0-9]*"
@@ -59,6 +76,7 @@ export default function ProjectForm({ handleSubmit, btn_text, projectData }) {
           text="Orçamento do projeto"
           name="budget"
           placeholder="Insira o orçamento total"
+          value={project.budget}
           onChange={handleChange}
         />
       </div>

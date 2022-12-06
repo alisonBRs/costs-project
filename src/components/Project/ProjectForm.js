@@ -21,14 +21,8 @@ export default function ProjectForm({ handleSubmit, btn_text, projectData }) {
       .catch((err) => console.log(err))
   }, [])
 
-  function validateInputs() {
-    if (!project.name || !project.budget || !project.category) setRedToast(true)
-  }
-
   function noSub(e) {
     e.preventDefault()
-    const isValid = validateInputs()
-    if (!isValid) return
     handleSubmit(project)
   }
 

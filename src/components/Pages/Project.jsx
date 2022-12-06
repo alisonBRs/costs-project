@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Loading } from "../Layout/Loading"
+import { Message } from "../Layout/Message"
 import ProjectForm from "../Project/ProjectForm"
 import Container from "../Layout/Container"
 
@@ -13,6 +14,9 @@ export function Project() {
   const { id } = useParams()
   const [project, setProject] = useState([])
   const [toggle, setToggle] = useState(true)
+  const [message, setMessage] = useState()
+  const [type, setType] = useState()
+  const [showMessage, setShowMessage] = useState(false)
   useEffect(() => {
     axios
       .get(`http://localhost:5050/projects/${id}`)
@@ -26,13 +30,29 @@ export function Project() {
   }
 
   function editPost(project) {
-    console.log(project)
+    axios
+      .patch(`http://localhost:5050/projects/${project.id}`, project)
+      .then(({ data }) => {
+        setProject(data)
+        setToggle(!toggle)
+        setMessage("Projeto atualizado com sucesso!")
+        setType("success")
+        setShowMessage(true)
+      })
   }
   return (
     <>
       {project.name ? (
         <div className={styles.project_container}>
           <Container customClass="column">
+            {message && (
+              <Message
+                showToast={showMessage}
+                setShowToast={setShowMessage}
+                msg={message}
+                type={type}
+              />
+            )}
             <div className={styles.details_container}>
               <div className={styles.details_flex}>
                 <h2>Projeto: {project.name}</h2>

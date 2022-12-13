@@ -7,7 +7,14 @@ import { Message } from "../Layout/Message"
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-export default function ProjectForm({ handleSubmit, btn_text, projectData }) {
+export default function ProjectForm({
+  handleSubmit,
+  btn_text,
+  projectData,
+  InputName,
+  InputBudget,
+  Options,
+}) {
   const [categories, setCategories] = useState([])
   const [project, setProject] = useState(projectData || {})
   const [redToast, setRedToast] = useState(false)
@@ -21,8 +28,14 @@ export default function ProjectForm({ handleSubmit, btn_text, projectData }) {
       .catch((err) => console.log(err))
   }, [])
 
+  function inputValidate() {
+    if (!InputName || !InputBudget || !Options) setRedToast(true)
+  }
+
   function noSub(e) {
     e.preventDefault()
+    const isValid = inputValidate()
+    if (!isValid) return
     handleSubmit(project)
   }
 

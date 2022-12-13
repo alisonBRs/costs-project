@@ -2,10 +2,10 @@
   "projects": [
     {
       "name": "Meu pc teste",
-      "budget": "2800",
+      "budget": "1180",
       "category": {
-        "id": "4",
-        "name": "Planejamento"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "service": [],

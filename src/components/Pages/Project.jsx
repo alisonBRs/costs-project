@@ -17,6 +17,7 @@ export function Project() {
   const [message, setMessage] = useState()
   const [type, setType] = useState()
   const [showMessage, setShowMessage] = useState(false)
+
   useEffect(() => {
     axios
       .get(`http://localhost:5050/projects/${id}`)
@@ -39,6 +40,7 @@ export function Project() {
         setType("success")
         setShowMessage(true)
       })
+      .catch((err) => console.log(err))
   }
   return (
     <>
@@ -85,6 +87,9 @@ export function Project() {
                     handleSubmit={editPost}
                     btn_text="Concluir Edição"
                     projectData={project}
+                    InputName={project.name}
+                    InputBudget={project.budget}
+                    Options={project.category.name}
                   />
                 </div>
               )}

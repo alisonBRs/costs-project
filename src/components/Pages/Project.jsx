@@ -87,9 +87,6 @@ export function Project() {
                     handleSubmit={editPost}
                     btn_text="Concluir Edição"
                     projectData={project}
-                    InputName={project.name}
-                    InputBudget={project.budget}
-                    Options={project.category.name}
                   />
                 </div>
               )}

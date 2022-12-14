@@ -11,13 +11,12 @@ export default function ProjectForm({
   handleSubmit,
   btn_text,
   projectData,
-  InputName,
-  InputBudget,
-  Options,
+  text,
 }) {
   const [categories, setCategories] = useState([])
   const [project, setProject] = useState(projectData || {})
   const [redToast, setRedToast] = useState(false)
+  const [messageError, setMessageError] = useState("")
 
   useEffect(() => {
     axios
@@ -29,12 +28,18 @@ export default function ProjectForm({
   }, [])
 
   function inputValidate() {
-    if (!InputName || !InputBudget || !Options) setRedToast(true)
+    if (!project.name || !project.budget || !project.category)
+      return false, setRedToast(true)
+    return true
   }
 
   function noSub(e) {
     e.preventDefault()
     const isValid = inputValidate()
+    if (!project.category) setMessageError("Selecione uma categoria!")
+    if (!project.budget) setMessageError("Orçamento de projeto é inválido!")
+    if (!project.name) setMessageError("Nome de projeto é inválido!")
+
     if (!isValid) return
     handleSubmit(project)
   }
@@ -52,6 +57,7 @@ export default function ProjectForm({
       },
     })
   }
+
   return (
     <form
       onSubmit={noSub}
@@ -63,7 +69,7 @@ export default function ProjectForm({
           showToast={redToast}
           setShowToast={setRedToast}
           type="error"
-          msg="Preencha os campos corretamente"
+          msg={messageError}
         />
       )}
       <div className={styles.project_inputs}>

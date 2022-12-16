@@ -1,5 +1,5 @@
 import styles from "../Layout/message.module.css"
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { FiX } from "react-icons/fi"
 
 export function Message({ type, msg, showToast, setShowToast }) {
@@ -30,9 +30,11 @@ export function Message({ type, msg, showToast, setShowToast }) {
   return (
     <>
       {showToast && (
-        <div className={`${styles.message} ${styles[type]}`}>
-          {msg}
-          <FiX onClick={timerIsOver} />
+        <div className={styles.msgContainer}>
+          <div className={`${styles.message} ${styles[type]}`}>
+            {msg}
+            <FiX onClick={timerIsOver} />
+          </div>
         </div>
       )}
     </>

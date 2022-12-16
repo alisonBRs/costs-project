@@ -1,11 +1,11 @@
 .container {
   display: flex;
+  position: relative;
 }
 
 .bg {
   justify-content: center;
   text-align: center;
-  position: relative;
   flex: 1 0 auto;
   padding: 2rem 5rem 2rem 5rem;
   background: var(--text-color);

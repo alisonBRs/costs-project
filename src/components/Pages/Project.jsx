@@ -13,7 +13,8 @@ import axios from "axios"
 export function Project() {
   const { id } = useParams()
   const [project, setProject] = useState([])
-  const [toggle, setToggle] = useState(true)
+  const [toggle, setToggle] = useState(false)
+  const [showServiceForm, setshowServiceForm] = useState(false)
   const [message, setMessage] = useState()
   const [type, setType] = useState()
   const [showMessage, setShowMessage] = useState(false)
@@ -26,8 +27,13 @@ export function Project() {
       })
       .catch((err) => console.log(err))
   }, [id])
+
   function toggleProjectForm() {
     setToggle(!toggle)
+  }
+
+  function toggleServiceForm() {
+    setshowServiceForm(!showServiceForm)
   }
 
   function editPost(project) {
@@ -62,10 +68,10 @@ export function Project() {
                   className={`${style.btn} ${styles.btn_container}`}
                   onClick={toggleProjectForm}
                 >
-                  {toggle ? "Editar projeto" : "Fechar"}
+                  {!toggle ? "Editar projeto" : "Fechar"}
                 </button>
               </div>
-              {toggle ? (
+              {!toggle ? (
                 <div className={styles.project_details}>
                   <p>
                     <span>Categoria: </span>
@@ -82,14 +88,22 @@ export function Project() {
                   </p>
                 </div>
               ) : (
-                <div>
-                  <ProjectForm
-                    handleSubmit={editPost}
-                    btn_text="Concluir Edição"
-                    projectData={project}
-                  />
-                </div>
+                <ProjectForm
+                  handleSubmit={editPost}
+                  btn_text="Concluir Edição"
+                  projectData={project}
+                  FormCustomClass="alternative_form_container"
+                />
               )}
+            </div>
+            <div className={styles.service_form_container}>
+              <h2>Adicione um serviço:</h2>
+              <button
+                className={`${style.btn} ${styles.btn_container}`}
+                onClick={toggleServiceForm}
+              >
+                {!showServiceForm ? "Adicionar serviço" : "Fechar"}
+              </button>
             </div>
           </Container>
         </div>

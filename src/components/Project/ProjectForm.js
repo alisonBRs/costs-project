@@ -11,7 +11,7 @@ export default function ProjectForm({
   handleSubmit,
   btn_text,
   projectData,
-  text,
+  FormCustomClass,
 }) {
   const [categories, setCategories] = useState([])
   const [project, setProject] = useState(projectData || {})
@@ -61,7 +61,7 @@ export default function ProjectForm({
   return (
     <form
       onSubmit={noSub}
-      className={styles.project_container}
+      className={`${styles.project_container} ${styles[FormCustomClass]}`}
       autoComplete="off"
     >
       {redToast && (

@@ -16,6 +16,7 @@ export function Project() {
   const [toggle, setToggle] = useState(false)
   const [showServiceForm, setshowServiceForm] = useState(false)
   const [message, setMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState(false)
   const [type, setType] = useState()
   const [showMessage, setShowMessage] = useState(false)
 
@@ -36,7 +37,20 @@ export function Project() {
     setshowServiceForm(!showServiceForm)
   }
 
+  function Post() {
+    if (project.budget < project.cost) return false
+    return true
+  }
+
+  const messagePost = Post()
+
   function editPost(project) {
+    if (!messagePost) {
+      setType("error")
+      setMessage("Orçamento do projeto insuficiente!")
+      return
+    }
+
     axios
       .patch(`http://localhost:5050/projects/${project.id}`, project)
       .then(({ data }) => {
@@ -48,6 +62,7 @@ export function Project() {
       })
       .catch((err) => console.log(err))
   }
+
   return (
     <>
       {project.name ? (
@@ -57,6 +72,15 @@ export function Project() {
               <Message
                 showToast={showMessage}
                 setShowToast={setShowMessage}
+                msg={message}
+                type={type}
+              />
+            )}
+
+            {!messagePost && (
+              <Message
+                showToast={errorMessage}
+                setShowToast={setErrorMessage}
                 msg={message}
                 type={type}
               />
@@ -97,14 +121,22 @@ export function Project() {
               )}
             </div>
             <div className={styles.service_form_container}>
-              <h2>Adicione um serviço:</h2>
-              <button
-                className={`${style.btn} ${styles.btn_container}`}
-                onClick={toggleServiceForm}
-              >
-                {!showServiceForm ? "Adicionar serviço" : "Fechar"}
-              </button>
+              <div className={styles.service_details}>
+                <h2>Adicione um serviço:</h2>
+                <button
+                  className={`${style.btn} ${styles.btn_container}`}
+                  onClick={toggleServiceForm}
+                >
+                  {!showServiceForm ? "Adicionar serviço" : "Fechar"}
+                </button>
+              </div>
+              {showServiceForm && <p>Formulário do serviço.</p>}
             </div>
+
+            <h2>Serviços</h2>
+            <Container customClass="start">
+              <p>Itens de serviço</p>
+            </Container>
           </Container>
         </div>
       ) : (

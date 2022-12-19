@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  text-align: start;
   width: 100%;
 }
 
@@ -23,13 +24,17 @@
 }
 
 .service_form_container {
+  border-bottom: 1px solid grey;
+  padding: 1rem 0;
+  text-align: start;
+}
+
+.service_details {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  border-bottom: 1px solid grey;
   text-align: start;
-  padding: 1rem 0;
 }
 
 .details_container h2 {

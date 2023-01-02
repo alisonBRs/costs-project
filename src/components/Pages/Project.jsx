@@ -17,8 +17,8 @@ export function Project() {
   const [showServiceForm, setshowServiceForm] = useState(false)
   const [message, setMessage] = useState()
   const [errorMessage, setErrorMessage] = useState(false)
-  const [type, setType] = useState()
   const [showMessage, setShowMessage] = useState(false)
+  const [type, setType] = useState()
 
   useEffect(() => {
     axios
@@ -37,18 +37,12 @@ export function Project() {
     setshowServiceForm(!showServiceForm)
   }
 
-  function Post() {
-    if (project.budget < project.cost) return false
-    return true
-  }
-
-  const messagePost = Post()
-
   function editPost(project) {
-    if (!messagePost) {
+    if (project.budget < project.cost) {
       setType("error")
       setMessage("Orçamento do projeto insuficiente!")
-      return
+      setShowMessage(true)
+      return false
     }
 
     axios
@@ -77,7 +71,7 @@ export function Project() {
               />
             )}
 
-            {!messagePost && (
+            {!editPost && (
               <Message
                 showToast={errorMessage}
                 setShowToast={setErrorMessage}

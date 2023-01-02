@@ -28,8 +28,10 @@ export default function ProjectForm({
   }, [])
 
   function inputValidate() {
-    if (!project.name || !project.budget || !project.category)
-      return false, setRedToast(true)
+    if (!project.name || !project.budget || !project.category) {
+      setRedToast(true)
+      return false
+    }
     return true
   }
 

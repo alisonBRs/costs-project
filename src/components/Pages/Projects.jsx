@@ -7,7 +7,6 @@ import styles from "../CSS/projects.module.css"
 import style from "../Layout/LinkButton.module.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { Message } from "../Layout/Message"
 
 export default function Projects({ projectMessage }) {
   const [projects, setProjects] = useState([])

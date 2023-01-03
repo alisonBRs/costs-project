@@ -52,7 +52,7 @@ export function Project() {
         setToggle(!toggle)
         setMessage("Projeto atualizado com sucesso!")
         setType("success")
-        setShowMessage(true)
+        setErrorMessage(true)
       })
       .catch((err) => console.log(err))
   }
@@ -61,7 +61,7 @@ export function Project() {
     <>
       {project.name ? (
         <div className={styles.project_container}>
-          <Container customClass="column">
+          <div className={styles.project_content}>
             {message && (
               <Message
                 showToast={showMessage}
@@ -131,7 +131,7 @@ export function Project() {
             <Container customClass="start">
               <p>Itens de serviço</p>
             </Container>
-          </Container>
+          </div>
         </div>
       ) : (
         <Loading />

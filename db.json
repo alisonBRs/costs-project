@@ -10,6 +10,17 @@
       "cost": 0,
       "service": [],
       "id": 1
+    },
+    {
+      "name": "teste",
+      "budget": "80",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 2
     }
   ],
   "categories": [

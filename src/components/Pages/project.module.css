@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.project_content {
+  margin-top: 3rem;
+}
+
 .details_flex {
   display: flex;
   gap: 12rem;

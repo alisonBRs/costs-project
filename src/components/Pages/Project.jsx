@@ -1,10 +1,11 @@
+import { parse, v4 as uuidv4 } from "uuid"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Loading } from "../Layout/Loading"
 import { Message } from "../Layout/Message"
 import ProjectForm from "../Project/ProjectForm"
 import Container from "../Layout/Container"
-
+import { ServiceForm } from "../Service/ServiceForm"
 import styles from "./project.module.css"
 import style from "../form/button.module.css"
 
@@ -19,6 +20,7 @@ export function Project() {
   const [errorMessage, setErrorMessage] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
   const [type, setType] = useState()
+  const [services, setServices] = useState()
 
   useEffect(() => {
     axios
@@ -37,22 +39,51 @@ export function Project() {
     setshowServiceForm(!showServiceForm)
   }
 
+  function createService(project) {
+    const lastService = project.services[project.services.length - 1]
+    lastService.id = uuidv4()
+
+    const lastServiceCost = lastService.cost
+
+    const newCost = Number(project.cost) + Number(lastServiceCost)
+
+    if (newCost > Number(project.budget)) {
+      setMessage("Orçamento ultrapassado. Verifique o valor do serviço!")
+      setType("error")
+      setShowMessage(true)
+      project.services.pop()
+      return false
+    }
+    setshowServiceForm(!showServiceForm)
+
+    setMessage("Serviço adicionado com sucesso!")
+    setType("success")
+
+    project.cost = project.cost + Number(lastServiceCost)
+
+    axios
+      .patch(`http://localhost:5050/projects/${project.id}`, project)
+      .then(() => {
+        console.log("deu certo")
+      })
+      .catch((err) => console.log(err))
+  }
+
   function editPost(project) {
     if (project.budget < project.cost) {
       setType("error")
       setMessage("Orçamento do projeto insuficiente!")
-      setShowMessage(true)
       return false
     }
 
     axios
       .patch(`http://localhost:5050/projects/${project.id}`, project)
       .then(({ data }) => {
+        setShowMessage(true)
         setProject(data)
         setToggle(!toggle)
         setMessage("Projeto atualizado com sucesso!")
         setType("success")
-        setErrorMessage(true)
       })
       .catch((err) => console.log(err))
   }
@@ -86,7 +117,7 @@ export function Project() {
                   className={`${style.btn} ${styles.btn_container}`}
                   onClick={toggleProjectForm}
                 >
-                  {!toggle ? "Editar projeto" : "Fechar"}
+                  {!toggle ? "Editar projeto" : "Cancelar"}
                 </button>
               </div>
               {!toggle ? (
@@ -121,15 +152,27 @@ export function Project() {
                   className={`${style.btn} ${styles.btn_container}`}
                   onClick={toggleServiceForm}
                 >
-                  {!showServiceForm ? "Adicionar serviço" : "Fechar"}
+                  {!showServiceForm ? "Adicionar serviço" : "Cancelar"}
                 </button>
               </div>
-              {showServiceForm && <p>Formulário do serviço.</p>}
+              {showServiceForm && (
+                <ServiceForm
+                  btnText="Adicionar serviço"
+                  projectData={project}
+                  handleSubmit={createService}
+                />
+              )}
             </div>
 
             <h2>Serviços</h2>
             <Container customClass="start">
-              <p>Itens de serviço</p>
+              {services ? (
+                <div>
+                  <p>teste</p>
+                </div>
+              ) : (
+                "Não há serviços cadastrados."
+              )}
             </Container>
           </div>
         </div>

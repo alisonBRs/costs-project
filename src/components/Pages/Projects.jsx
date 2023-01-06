@@ -51,6 +51,7 @@ export default function Projects({ projectMessage }) {
                 id={project.id}
                 name={project.name}
                 budget={project.budget}
+                key={project.id}
                 category={project.category.name}
                 handleRemove={removeProject}
               />

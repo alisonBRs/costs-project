@@ -8,7 +8,7 @@ export default function NewProject({ setShow }) {
 
   function createPost(project) {
     project.cost = 0
-    project.service = []
+    project.services = []
 
     axios
       .post("http://localhost:5050/projects", project)

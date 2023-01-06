@@ -5,6 +5,13 @@
   width: 25rem;
 }
 
+.project_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
 .alternative_form_container {
   width: 100%;
 }

@@ -1,25 +1,38 @@
 {
   "projects": [
     {
-      "name": "teste de projeto",
-      "budget": "25",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "service": [],
-      "id": 1
-    },
-    {
       "name": "teste",
-      "budget": "80",
+      "budget": "1850",
       "category": {
         "id": "3",
         "name": "Design"
       },
+      "cost": 1240,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "1220",
+          "description": "cost",
+          "id": "e430335e-08e0-4486-8f23-8cf4b2198b6a"
+        },
+        {
+          "name": "outro teste",
+          "cost": "20",
+          "description": "teste",
+          "id": "faeee92e-6712-458c-a09a-9a81d9bd536d"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "outro teste",
+      "budget": "90",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
       "cost": 0,
-      "service": [],
+      "services": [],
       "id": 2
     }
   ],

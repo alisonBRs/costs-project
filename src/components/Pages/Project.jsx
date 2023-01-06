@@ -14,19 +14,21 @@ import axios from "axios"
 export function Project() {
   const { id } = useParams()
   const [project, setProject] = useState([])
+  const [services, setServices] = useState([])
   const [toggle, setToggle] = useState(false)
   const [showServiceForm, setshowServiceForm] = useState(false)
   const [message, setMessage] = useState()
   const [errorMessage, setErrorMessage] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
   const [type, setType] = useState()
-  const [services, setServices] = useState()
 
   useEffect(() => {
     axios
       .get(`http://localhost:5050/projects/${id}`)
       .then(({ data }) => {
         setProject(data)
+        setServices(data.services)
+        console.log(services)
       })
       .catch((err) => console.log(err))
   }, [id])
@@ -63,9 +65,7 @@ export function Project() {
 
     axios
       .patch(`http://localhost:5050/projects/${project.id}`, project)
-      .then(() => {
-        console.log("deu certo")
-      })
+      .then(({ data }) => {})
       .catch((err) => console.log(err))
   }
 
@@ -166,12 +166,10 @@ export function Project() {
 
             <h2>Serviços</h2>
             <Container customClass="start">
-              {services ? (
-                <div>
-                  <p>teste</p>
-                </div>
+              {services.length > 0 ? (
+                <p>teste</p>
               ) : (
-                "Não há serviços cadastrados."
+                <p>Não há serviços cadastrados.</p>
               )}
             </Container>
           </div>

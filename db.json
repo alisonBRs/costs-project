@@ -7,19 +7,13 @@
         "id": "3",
         "name": "Design"
       },
-      "cost": 1240,
+      "cost": 1000,
       "services": [
         {
-          "name": "teste",
-          "cost": "1220",
-          "description": "cost",
-          "id": "e430335e-08e0-4486-8f23-8cf4b2198b6a"
-        },
-        {
-          "name": "outro teste",
-          "cost": "20",
+          "name": "servicin",
+          "cost": "1000",
           "description": "teste",
-          "id": "faeee92e-6712-458c-a09a-9a81d9bd536d"
+          "id": "ebd115a6-3710-45c8-92bd-874f0df31919"
         }
       ],
       "id": 1

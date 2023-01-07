@@ -7,13 +7,37 @@
         "id": "3",
         "name": "Design"
       },
-      "cost": 1000,
+      "cost": 1675,
       "services": [
         {
           "name": "servicin",
           "cost": "1000",
           "description": "teste",
           "id": "ebd115a6-3710-45c8-92bd-874f0df31919"
+        },
+        {
+          "name": "testezin",
+          "cost": "400",
+          "description": "teste",
+          "id": "141237eb-ae80-4cb6-b247-8edda224b90d"
+        },
+        {
+          "name": "ts",
+          "cost": "2",
+          "description": "ts",
+          "id": "23e58de7-dd4b-4119-9888-493be3b3938d"
+        },
+        {
+          "name": "one more",
+          "cost": "258",
+          "description": "wrap",
+          "id": "6b6ea1f2-1a64-4368-88dd-2874f9c475cb"
+        },
+        {
+          "name": "outro teste",
+          "cost": "15",
+          "description": "teste",
+          "id": "9752eb8b-0d3a-4204-bc56-d64cfc7a3fe7"
         }
       ],
       "id": 1

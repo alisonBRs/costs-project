@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   text-align: start;
-  width: 100%;
+  width: 32.5rem;
 }
 
 .project_content {
@@ -39,6 +39,13 @@
   align-items: center;
   flex-wrap: wrap;
   text-align: start;
+}
+
+.service_content {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .details_container h2 {

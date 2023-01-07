@@ -6,6 +6,8 @@ import { Message } from "../Layout/Message"
 import ProjectForm from "../Project/ProjectForm"
 import Container from "../Layout/Container"
 import { ServiceForm } from "../Service/ServiceForm"
+import { ServiceCard } from "../Service/ServiceCard"
+
 import styles from "./project.module.css"
 import style from "../form/button.module.css"
 
@@ -167,7 +169,15 @@ export function Project() {
             <h2>Serviços</h2>
             <Container customClass="start">
               {services.length > 0 ? (
-                <p>teste</p>
+                <div className={styles.service_content}>
+                  {services.map((service) => (
+                    <ServiceCard
+                      name={service.name}
+                      cost={service.cost}
+                      description={service.description}
+                    />
+                  ))}
+                </div>
               ) : (
                 <p>Não há serviços cadastrados.</p>
               )}

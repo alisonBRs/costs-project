@@ -6,6 +6,7 @@ export function ServiceCard({ name, cost, description }) {
       <h4>Nome do serviço: {name}</h4>
       <p>Custo: R${Number(cost).toLocaleString("pt-br")}</p>
       <p>Descrição: {description}</p>
+      <button>Deletar</button>
     </div>
   )
 }

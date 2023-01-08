@@ -9,19 +9,20 @@
 
 .project_content {
   margin-top: 3rem;
+  width: 100%;
 }
 
 .details_flex {
   display: flex;
-  gap: 12rem;
+  gap: 2rem;
   justify-content: space-between;
 }
 
 .details_container {
   display: flex;
   flex-direction: column;
-  width: max-content;
   flex-wrap: wrap;
+  width: 100%;
   border-bottom: 1px solid grey;
   text-align: start;
   padding-bottom: 1rem;

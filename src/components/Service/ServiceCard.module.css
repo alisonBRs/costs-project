@@ -1,16 +1,20 @@
 .ServiceCard_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  gap: 0.5rem;
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
-  width: 15rem;
-  position: relative;
+  width: 12.5rem;
+  height: 12rem;
   border: 1px solid black;
 }
 
 .ServiceCard_content button {
-  position: absolute;
-  right: 0.5rem;
-  bottom: 0.5rem;
   background: rgb(187, 111, 111);
+  height: fit-content;
   border-radius: 0.25rem;
   border-style: initial;
   cursor: pointer;
@@ -21,4 +25,14 @@
 .ServiceCard_content button:hover {
   color: white;
   background: rgb(232, 63, 63);
+}
+
+.ServiceCard_content .service_description h4 {
+  width: 10rem;
+  border-bottom: 1px solid grey;
+  margin-bottom: 0.5rem;
+}
+
+.ServiceCard_content .service_description p:nth-child(3) strong {
+  display: block;
 }

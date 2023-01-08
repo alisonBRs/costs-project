@@ -1,4 +1,4 @@
-import { parse, v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Loading } from "../Layout/Loading"
@@ -12,6 +12,8 @@ import styles from "./project.module.css"
 import style from "../form/button.module.css"
 
 import axios from "axios"
+
+import { FiAlertTriangle } from "react-icons/fi"
 
 export function Project() {
   const { id } = useParams()
@@ -30,7 +32,6 @@ export function Project() {
       .then(({ data }) => {
         setProject(data)
         setServices(data.services)
-        console.log(services)
       })
       .catch((err) => console.log(err))
   }, [id])
@@ -90,6 +91,31 @@ export function Project() {
       .catch((err) => console.log(err))
   }
 
+  function removeService(id, cost) {
+    const servicesUpdate = project.services.filter(
+      (service) => service.id !== id
+    )
+
+    const projectUpdated = project
+
+    projectUpdated.services = servicesUpdate
+
+    projectUpdated.cost = Number(projectUpdated.cost) - Number(cost)
+
+    axios
+      .patch(
+        `http://localhost:5050/projects/${projectUpdated.id}`,
+        projectUpdated
+      )
+      .then(() => {
+        setProject(projectUpdated)
+        setServices(servicesUpdate)
+        setShowMessage(true)
+        setMessage("Serviço removido com sucesso!")
+      })
+      .catch((err) => console.log(err))
+  }
+
   return (
     <>
       {project.name ? (
@@ -131,6 +157,13 @@ export function Project() {
                   <p>
                     <span>Total de orçamento: </span>
                     R${Number(project.budget).toLocaleString("pt-br")}
+                    {Number(project.budget) === Number(project.cost) && (
+                      <span className={styles.alert}>
+                        <FiAlertTriangle />
+                        Aumente o valor do orçamento para adicionar novos
+                        serviços.
+                      </span>
+                    )}
                   </p>
 
                   <p>
@@ -166,7 +199,7 @@ export function Project() {
               )}
             </div>
 
-            <h2>Serviços</h2>
+            <h2>Serviços:</h2>
             <Container customClass="start">
               {services.length > 0 ? (
                 <div className={styles.service_content}>
@@ -174,7 +207,10 @@ export function Project() {
                     <ServiceCard
                       name={service.name}
                       cost={service.cost}
+                      id={service.id}
+                      key={service.id}
                       description={service.description}
+                      handleRemove={removeService}
                     />
                   ))}
                 </div>
